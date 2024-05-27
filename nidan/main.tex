@@ -1,0 +1,115 @@
+\documentclass[a4paper, 10pt, twocolumn]{ltjsarticle}
+
+
+%%=============================================================================
+% パッケージの読み込み
+%%=============================================================================
+% 数学系
+\usepackage{amsmath,amssymb,amsfonts, mathtools}
+% 枠
+\usepackage{ascmac,framed}
+% 画像
+\usepackage{graphicx}
+% 文書の色をカスタム
+\usepackage{xcolor}
+% 文書のリンクを作成
+\usepackage{hyperref}
+% 定理環境
+\usepackage[amsmath,amsthm,thmmarks]{ntheorem}
+% urlのフォーマット
+\usepackage{url}
+% 文書のフォントをTimes Romanに設定
+\usepackage{times}
+% 文書のマージンやページサイズなどのレイアウトをカスタム
+\usepackage{geometry}
+% H位置指定子を追加
+\usepackage{here}
+% キャプションの見た目をカスタム
+\usepackage[hang,small,bf]{caption}
+% サブキャプションを扱う
+\usepackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
+% 文書を複数のカラムに分けて表示する
+\usepackage{multicol}
+% 異なるカラム間でテキスト同期を制御
+\usepackage{paracol}
+% これはグラフィック作成
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc,arrows.meta}
+% 文書の行間隔を調整
+\usepackage{setspace}
+% ダミーテキストを生成
+\usepackage{lipsum}
+% ヘッダ・フッター用
+\usepackage{fancyhdr}
+
+% ページカウンタの設定
+\setcounter{page}{1}
+% マージン設定 MsWord A4標準余白
+\geometry{top=35.01mm,bottom=30mm,inner=30mm,outer=30mm}
+
+
+% ヘッダ・フッター
+\pagestyle{fancy}
+\rhead{}
+\lhead{}
+% フッター中央
+\cfoot{\thepage}
+% ヘッダの線の太さ:0ptで消える
+\renewcommand{\headrulewidth}{0pt}
+
+
+%%=============================================================================
+% マクロ定義
+%%=============================================================================
+% タイトル
+\newcommand{\Title}[5]{
+  \twocolumn[
+  \begin{center}
+    \vspace{3cm}
+
+    \Huge{#1} \\ \vspace*{0.1cm} % タイトル
+    \huge{#2} \\ \vspace*{0.4cm} % サブタイトル
+    \Large{#3 （学籍番号：#4）} \\ \vspace*{0.1cm} % 氏名・学籍番号
+    \Large{#5} \\ % 所属
+  \end{center}
+  \ \\
+  ]
+}
+\newcommand{\hhh}{\hspace*{1cm}}
+\newcommand{\imgi}[5]{ % 7cm path cap lab H
+  \begin{figure}[#5]
+    \centering
+    \includegraphics[width=#1cm]{#2}
+    \caption{#3}
+    \label{#4}
+  \end{figure}
+}
+\newcommand{\defint}[3]{
+  \biggl[#1\biggr]_{#2}^{#3}
+}
+\newcommand{\nazenara}[1]{
+  \;\left(\because #1\right)
+}
+\newcommand{\marunum}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+\newcommand{\marunaze}{\raise0.2ex\hbox{\textcircled{\tiny{\because}}}}
+
+\makeatletter
+\newenvironment{tablehere}
+  {\def\@captype{table}}
+  {}
+
+\newenvironment{figurehere}
+  {\def\@captype{figure}}
+  {}
+\makeatother
+
+%%=============================================================================
+% 文書本体
+%%=============================================================================
+
+\begin{document}
+  \input{1.tex}
+  \bibliography{refs}
+  \bibliographystyle{unsrt}
+\end{document}
