@@ -76,7 +76,9 @@
   \ \\
   ]
 }
+% 1cm字下げ
 \newcommand{\hhh}{\hspace*{1cm}}
+% 画像1枚 \imgi{width[cm]}{image path}{caption}{label}{position[h,t,b,p,etc]}
 \newcommand{\imgi}[5]{ % 7cm path cap lab H
   \begin{figure}[#5]
     \centering
@@ -85,20 +87,27 @@
     \label{#4}
   \end{figure}
 }
+% 定積分 \defint{f(x)}{下端}{上端}
 \newcommand{\defint}[3]{
   \biggl[#1\biggr]_{#2}^{#3}
 }
+% ()内になぜならばの記号
 \newcommand{\nazenara}[1]{
   \;\left(\because #1\right)
 }
+% 丸数字
 \newcommand{\marunum}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+% 丸の中になぜならばの記号
 \newcommand{\marunaze}{\raise0.2ex\hbox{\textcircled{\tiny{\because}}}}
 
+% @が含まれるマクロを使えるようにする
 \makeatletter
+% tableとfigureをH指定子で使えるようにする
 \newenvironment{tablehere}
   {\def\@captype{table}}
   {}
 
+% figureとcaptionをセットで使えるようにする
 \newenvironment{figurehere}
   {\def\@captype{figure}}
   {}
